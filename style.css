@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
---root {
+:root {
   --primary-color: #f44336;
 }
 body {
@@ -24,45 +24,137 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   .game-area {
-  }
-}
-.inputs {
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-}
-.key-colors {
-  .key-color {
-    display: flex;
-    gap: 30px;
-    padding: 15px;
-    background-color: white;
-    align-items: center;
-    margin-bottom: 20px;
-    .key {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: #f44336;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      -ms-border-radius: 50%;
-      -o-border-radius: 50%;
-      &.in-place {
-        background-color: #4caf50;
+    .inputs > div {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25px;
+      span {
+        font-size: 30px;
+        margin-right: 15px;
       }
-      &.in-word {
-        background-color: #2196f3;
+      .letter {
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        margin-right: 10px;
+        background-color: white;
+        border: none;
+        caret-color: var(--primary-color);
+        border-bottom: 5px solid #333;
+        &:focus {
+          outline-color: #ccc;
+        }
+        &.yes-in-place {
+          background-color: #f44336;
+          border: #f44336;
+          color: white;
+        }
+        &.yes-in-word {
+          background-color: #2196f3;
+          border: #2196f3;
+          color: white;
+        }
+        &.not-in-word {
+          background-color: #333;
+          border: #333;
+          color: white;
+        }
       }
     }
-    .key-text {
-      font-size: 20px;
+    .message {
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+      span {
+        text-align: center;
+        font-weight: bold;
+        font-size: 50px;
+        color: var(--primary-color);
+        margin-top: 10px;
+        text-transform: capitalize;
+      }
+      p {
+        margin-top: 15px;
+      }
+    }
+  }
+  .control {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    width: 500px;
+    margin: 30px auto;
+    gap: 10px;
+    .check {
+      background-color: #f44336;
+      flex: 1;
+    }
+    .hint {
+      width: fit-content;
+      background-color: #009688;
+      color: white;
+    }
+    button {
+      border: none;
+      font-size: 25px;
+      padding: 15px 20px;
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      cursor: pointer;
       font-weight: bold;
     }
+    button:disabled {
+      background-color: black;
+      opacity: 0.4;
+      cursor: no-drop;
+    }
+  }
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .key-colors {
+    .key-color {
+      display: flex;
+      gap: 30px;
+      padding: 15px;
+      background-color: white;
+      align-items: center;
+      margin-bottom: 20px;
+      .key {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #f44336;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        &.in-place {
+          background-color: #f44336;
+        }
+        &.in-word {
+          background-color: #2196f3;
+        }
+        &.not-in-word {
+          background-color: #333;
+        }
+      }
+      .key-text {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
   }
 }
-
 footer {
   text-align: center;
   padding: 20px;
